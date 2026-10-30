@@ -16,8 +16,6 @@ jobs:
       CI: 'true'
       PORT: '8080'
       E2E_BASE_URL: http://localhost:8080
-      APP_DATA_DIR: ${{ runner.temp }}/e2e-data
-      APP_MODELS_DIR: ${{ runner.temp }}/e2e-models
       APP_STATIC_DIR: ${{ github.workspace }}/frontend/dist
     steps:
       - uses: actions/checkout@v4
@@ -52,6 +50,9 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Start app and wait for readiness
+        env:
+          APP_DATA_DIR: ${{ runner.temp }}/e2e-data
+          APP_MODELS_DIR: ${{ runner.temp }}/e2e-models
         run: |
           mkdir -p "$APP_DATA_DIR" "$APP_MODELS_DIR"
           node backend/src/server.js > "$RUNNER_TEMP/backend.log" 2>&1 &
