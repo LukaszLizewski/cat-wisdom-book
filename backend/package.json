@@ -1,0 +1,18 @@
+{
+  "name": "cats-book-of-wisdom-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cat's Book of Wisdom - Node.js backend (Express + better-sqlite3 + transformers.js)",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "@xenova/transformers": "^2.17.2",
+    "better-sqlite3": "^11.3.0",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "zod": "^3.23.8"
+  }
+}

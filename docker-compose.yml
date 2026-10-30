@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    image: cats-book-of-wisdom:latest
+    container_name: cats-book-of-wisdom
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+    environment:
+      APP_DATA_DIR: /app/data
+      APP_MODELS_DIR: /app/models
+    restart: unless-stopped
